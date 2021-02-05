@@ -10,7 +10,7 @@ export default function Layout({ children, home } : { children: React.ReactNode,
   return (
     <div className={styles.container}>
       <Head>
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" as={ process.env.BACKEND_URL + '/favicon.ico'}/>
         <meta
           name="description"
           content="Learn how to build a personal website using Next.js"
@@ -36,7 +36,7 @@ export default function Layout({ children, home } : { children: React.ReactNode,
           </>
         ) : (
           <>
-            <Link href="/">
+            <Link href="/" as={ process.env.BACKEND_URL + '/'}>
               <a>
                 <img
                   src="/images/profile.jpg"
@@ -46,7 +46,7 @@ export default function Layout({ children, home } : { children: React.ReactNode,
               </a>
             </Link>
             <h2 className={utilStyles.headingLg}>
-              <Link href="/">
+              <Link href="/" as={ process.env.BACKEND_URL + '/'}>
                 <a className={utilStyles.colorInherit}>{name}</a>
               </Link>
             </h2>
@@ -56,7 +56,7 @@ export default function Layout({ children, home } : { children: React.ReactNode,
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/">
+          <Link href="/" as={ process.env.BACKEND_URL + '/'}>
             <a>← Back to home</a>
           </Link>
         </div>
